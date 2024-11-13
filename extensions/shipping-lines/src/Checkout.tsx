@@ -1,59 +1,62 @@
 import {
   reactExtension,
-  Banner,
-  BlockStack,
-  Checkbox,
   Text,
-  useApi,
-  useApplyAttributeChange,
-  useInstructions,
-  useTranslate,
+  useShippingOptionTarget,
+  Image,
+  useSettings,
+  InlineLayout,
+  InlineSpacer,
 } from "@shopify/ui-extensions-react/checkout";
 
-// 1. Choose an extension target
-export default reactExtension("purchase.checkout.block.render", () => (
+export default reactExtension("purchase.checkout.shipping-option-item.render-after", () => (
   <Extension />
 ));
 
 function Extension() {
-  const translate = useTranslate();
-  const { extension } = useApi();
-  const instructions = useInstructions();
-  const applyAttributeChange = useApplyAttributeChange();
+  const { shippingOptionTarget } = useShippingOptionTarget();
+  const { title: rawTitle } = shippingOptionTarget;
+  const title = rawTitle.replace(/®/g, '');
+  const { shipping_info } = useSettings();
+  const _shipping_info = shipping_info.split(/\r?\n|\r/);
 
+  const imageMap = {
+    snail: {
+      image: "https://cdn.shopify.com/s/files/1/0063/9900/0643/files/FM_-_Shipping_Icons_-_Single_Color_-_100_x_100_-_resized-05.png?v=1731533548",
+      label: "EcoSaver"
+    },
+    turtle: {
+      image: "https://cdn.shopify.com/s/files/1/0063/9900/0643/files/FM_-_Shipping_Icons_-_Single_Color_-_100_x_100_-_resized-06.png?v=1731533548",
+      label: "EcoSpeed"
+    },
+    bunny: {
+      image: "https://cdn.shopify.com/s/files/1/0063/9900/0643/files/FM_-_Shipping_Icons_-_Single_Color_-_100_x_100_-_resized-07.png?v=1731533548",
+      label: "Expedited Shipping"
+    },
+    bird: {
+      image: "https://cdn.shopify.com/s/files/1/0063/9900/0643/files/FM_-_Shipping_Icons_-_Single_Color_-_100_x_100_-_resized-08.png?v=1731533548",
+      label: "Express Shipping"
+    },
+  };
 
-  // 2. Check instructions for feature availability, see https://shopify.dev/docs/api/checkout-ui-extensions/apis/cart-instructions for details
-  if (!instructions.attributes.canUpdateAttributes) {
-    // For checkouts such as draft order invoices, cart attributes may not be allowed
-    // Consider rendering a fallback UI or nothing at all, if the feature is unavailable
-    return (
-      <Banner title="shipping-lines" status="warning">
-        {translate("attributeChangesAreNotSupported")}
-      </Banner>
-    );
+  let imgUrl: string, label: string = '';
+  for (const info of _shipping_info) {
+    const split = info.split("|");
+
+    if (title.toLowerCase() == split[0].toLowerCase()) {
+      const item = imageMap[split[1].toLowerCase()];
+
+      if (item && item.label && item.image) {
+        imgUrl = item.image;
+        label = item.label;
+      }
+    }
   }
 
-  // 3. Render a UI
-  return (
-    <BlockStack border={"dotted"} padding={"tight"}>
-      <Banner title="shipping-lines">
-        {translate("welcome", {
-          target: <Text emphasis="italic">{extension.target}</Text>,
-        })}
-      </Banner>
-      <Checkbox onChange={onCheckboxChange}>
-        {translate("iWouldLikeAFreeGiftWithMyOrder")}
-      </Checkbox>
-    </BlockStack>
+  return label && imgUrl && (
+    <InlineLayout columns={[50, 10, "fill"]} inlineAlignment={'start'} blockAlignment={'center'}>
+      <Image source={imgUrl} />
+      <InlineSpacer />
+      <Text>{label}</Text>
+    </InlineLayout>
   );
-
-  async function onCheckboxChange(isChecked) {
-    // 4. Call the API to modify checkout
-    const result = await applyAttributeChange({
-      key: "requestedFreeGift",
-      type: "updateAttribute",
-      value: isChecked ? "yes" : "no",
-    });
-    console.log("applyAttributeChange result", result);
-  }
 }

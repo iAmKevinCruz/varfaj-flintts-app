@@ -17,7 +17,7 @@ type = "ui_extension"
 
 [[extensions.targeting]]
 module = "./src/Checkout.tsx"
-target = "purchase.checkout.block.render"
+target = "purchase.checkout.shipping-option-item.render-after"
 
 [extensions.capabilities]
 # Gives your extension access to directly query Shopify’s storefront API.
@@ -44,9 +44,9 @@ api_access = true
 # your extension. Learn more:
 # https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#settings-definition
 
-# [extensions.settings]
-# [[extensions.settings.fields]]
-# key = "banner_title"
-# type = "single_line_text_field"
-# name = "Banner title"
-# description = "Enter a title for the banner"
+[extensions.settings]
+[[extensions.settings.fields]]
+key = "shipping_info"
+type = "multi_line_text_field"
+name = "Shipping Info For Icons"
+description = "Enter the shipping label with the icon to show for it. Enter a new line for each entry. Icon options are 'bird', 'snail', 'turtle', 'bird'. Ex: USPS Flats Shipping|bird"
