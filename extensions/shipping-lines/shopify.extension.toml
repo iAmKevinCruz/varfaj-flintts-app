@@ -49,4 +49,4 @@ api_access = true
 key = "shipping_info"
 type = "multi_line_text_field"
 name = "Shipping Info For Icons"
-description = "Enter the shipping label with the icon to show for it. Enter a new line for each entry. Icon options are 'bird', 'snail', 'turtle', 'bird'. Ex: USPS Flats Shipping|bird"
+description = "Enter the shipping label with the icon to show for it. Enter a new line for each entry. Icon options are 'bird', 'snail', 'turtle', 'bunny'. Ex: USPS Flats Shipping|bird"
