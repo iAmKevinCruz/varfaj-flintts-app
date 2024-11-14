@@ -28,7 +28,7 @@ function Extension() {
       image: "https://cdn.shopify.com/s/files/1/0063/9900/0643/files/FM_-_Shipping_Icons_-_Single_Color_-_100_x_100_-_resized-06.png?v=1731533548",
       label: "EcoSpeed"
     },
-    bunny: {
+    rabbit: {
       image: "https://cdn.shopify.com/s/files/1/0063/9900/0643/files/FM_-_Shipping_Icons_-_Single_Color_-_100_x_100_-_resized-07.png?v=1731533548",
       label: "Expedited Shipping"
     },
