@@ -44,9 +44,9 @@ api_access = true
 # your extension. Learn more:
 # https://shopify.dev/docs/api/checkout-ui-extensions/unstable/configuration#settings-definition
 
-[extensions.settings]
-[[extensions.settings.fields]]
-key = "shipping_info"
-type = "multi_line_text_field"
-name = "Shipping Info For Icons"
-description = "Enter the shipping label with the icon to show for it. Enter a new line for each entry. Icon options are 'bird', 'snail', 'turtle', 'rabbit'. Ex: USPS Flats Shipping|bird"
+# [extensions.settings]
+# [[extensions.settings.fields]]
+# key = "shipping_info"
+# type = "multi_line_text_field"
+# name = "Shipping Info For Icons"
+# description = "Enter the shipping label with the icon to show for it. Enter a new line for each entry. Icon options are 'bird', 'snail', 'turtle', 'rabbit'. Ex: USPS Flats Shipping|bird"

@@ -3,7 +3,7 @@
 client_id = "81c46fbccbfeb8711435d592d03c6e4b"
 name = "varfaj-flintts"
 handle = "varfaj-flintts"
-application_url = "https://ones-tx-alexander-louisville.trycloudflare.com"
+application_url = "https://pierre-agreed-intelligent-protest.trycloudflare.com"
 embedded = true
 
 [build]
@@ -13,13 +13,13 @@ include_config_on_deploy = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = ""
+scopes = "read_metaobject_definitions,read_metaobjects,unauthenticated_read_metaobjects"
 
 [auth]
 redirect_urls = [
-  "https://ones-tx-alexander-louisville.trycloudflare.com/auth/callback",
-  "https://ones-tx-alexander-louisville.trycloudflare.com/auth/shopify/callback",
-  "https://ones-tx-alexander-louisville.trycloudflare.com/api/auth/callback"
+  "https://pierre-agreed-intelligent-protest.trycloudflare.com/auth/callback",
+  "https://pierre-agreed-intelligent-protest.trycloudflare.com/auth/shopify/callback",
+  "https://pierre-agreed-intelligent-protest.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
