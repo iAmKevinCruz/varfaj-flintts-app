@@ -107,11 +107,7 @@ function Extension() {
       let handle: string, icon: string, icon_label: string, message: string;
       for (const { key, value } of metaobject.fields) {
         if (key === "shipping_label") handle = value;
-        if (key === "icon") {
-          const temp = value.split(" ");
-          icon = temp[0];
-          icon_label = temp[1].match(/\((.*?)\)/)?.[1] || temp[1];
-        }
+        if (key === "icon") icon = value;
         if (key === "icon_label") icon_label = value;
         if (key === "message") message = value;
       }
