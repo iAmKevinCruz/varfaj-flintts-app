@@ -112,7 +112,7 @@ function Extension() {
         if (key === "message") message = value;
       }
 
-      if (title.toLowerCase() === handle.toLowerCase()) {
+      if (title.toLowerCase().trim() === handle.toLowerCase().trim()) {
         const item = imageMap[icon.toLowerCase()];
         const label = icon_label || item.label;
 
