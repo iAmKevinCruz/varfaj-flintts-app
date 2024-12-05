@@ -129,7 +129,7 @@ function Extension() {
 
   return (
     renderData && (
-      <BlockLayout>
+      <BlockLayout rows={['auto', 'auto']}>
         <InlineLayout
           columns={[50, 10, "fill"]}
           inlineAlignment={"start"}

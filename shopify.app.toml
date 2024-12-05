@@ -3,7 +3,7 @@
 client_id = "81c46fbccbfeb8711435d592d03c6e4b"
 name = "varfaj-flintts"
 handle = "varfaj-flintts"
-application_url = "https://believe-audio-mighty-adam.trycloudflare.com"
+application_url = "https://working-proprietary-applicant-carlo.trycloudflare.com"
 embedded = true
 
 [build]
@@ -17,9 +17,9 @@ scopes = "read_metaobject_definitions,read_metaobjects,unauthenticated_read_meta
 
 [auth]
 redirect_urls = [
-  "https://believe-audio-mighty-adam.trycloudflare.com/auth/callback",
-  "https://believe-audio-mighty-adam.trycloudflare.com/auth/shopify/callback",
-  "https://believe-audio-mighty-adam.trycloudflare.com/api/auth/callback"
+  "https://working-proprietary-applicant-carlo.trycloudflare.com/auth/callback",
+  "https://working-proprietary-applicant-carlo.trycloudflare.com/auth/shopify/callback",
+  "https://working-proprietary-applicant-carlo.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
